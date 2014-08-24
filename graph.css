@@ -1,14 +1,104 @@
-/*body {
+body {
 	font-family: 'Open Sans', sans-serif;
+	background: #fafafa;
+	font-size: 13px;
+	line-height: 25px;
 }
-*/
+
+header {
+	height: auto;
+	padding: 10px 0px;
+	border: 1px solid;
+
+}
+
+header .logo {
+	width: 25%;
+	padding: 10px;
+	font-size: 42px;
+	position: relative;
+}
+.container {
+	display: block;
+	max-width: 1200px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	border: 3px solid; 
+}
+
+.page-content {
+	margin: 30px 0px;
+	display: block;
+	border : 5px solid;
+}
+
+.sideMenu {
+	position: absolute;
+	margin-bottom : 30px;
+	width: 220px;
+	display: block;
+	float : left;
+	background : #fff;
+	border-radius: 10px;
+	padding: 10px;
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-right: 2px solid #eee;
+	border-bottom: 2px solid #eee;
+}
+
+.sideMenu ul.nav {
+	display: block;
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.sideMenu .nav > li {
+	margin: 0;
+	border-bottom : 1px dashed #eee;
+	text-align: -webkit-match-parent;
+}
+
+.nav > li {
+	position: relative;
+	display: block;
+}
+
+.nav > li > a {
+	position: relative;
+	display: block;
+	font-size: 14px;
+	line-height: 20px;
+	padding: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	border-top: 0px;
+	color: #999;
+}
+
+.nav>li>a:hover {
+	cursor : auto;
+	text-decoration: none;
+	background: #fff;
+	color: #555;
+}
+
 .graph-full {
+	display: block;
+	float: right;
 	border-radius: 10px;
 	padding: 20px;
-
+	/*background: #fff;*/
 	width : 900px;
 	height : 550px;
-	border : 1px solid ;
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-right: 2px solid #eee;
+	border-bottom: 2px solid #eee;
 }
 
 .graph-header {
