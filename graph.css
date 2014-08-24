@@ -1,0 +1,54 @@
+/*body {
+	font-family: 'Open Sans', sans-serif;
+}
+*/
+.graph-full {
+	border-radius: 10px;
+	padding: 20px;
+
+	width : 900px;
+	height : 550px;
+	border : 1px solid ;
+}
+
+.graph-header {
+	font-size: 15px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	line-height: 25px;
+	-webkit-font-smoothing : antialiased;
+	border-bottom : 1px dashed #eee;
+}
+
+.progressBar-dish {
+	width: 40% ;
+	height: 20px; 
+	position: relative;
+	background: #555;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+	padding: 10px;
+	margin: 10px;
+	-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+	-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+	box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+	/*position: relative;
+	overflow: hidden;*/
+}
+
+.progressBar-energy {
+	display: block;
+	height: 100%;
+	border-radius: 20px 8px 8px 20px;
+	background-color: rgb(69,247,116);
+	background-image: -webkit-linear-gradient(left, rgb(123, 246, 156), rgb(1, 146, 15));
+	background-image:    -moz-linear-gradient(left, rgb(123, 246, 156), rgb(1, 146, 15)); 
+	background-image:         linear-gradient(left, rgb(123, 246, 156), rgb(1, 146, 15));
+	-webkit-animation: fillEnergy 2s;
+}
+
+@-webkit-keyframes fillEnergy {
+	0% {width: 0%;}
+	100% {width: 100%;}
+}

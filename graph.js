@@ -7,7 +7,7 @@
 
 //그래프의 원래 크기는 800*400
 //하지만 축을 표시해야하므로, 860*430으로 캔버스의 사이즈 지정 ( html 상에서 )
-var tempJson = {0 : "100", 1 : "300", 2:"200", 3 : "360", 4:"300", 5: "400"};
+var polyJson = {0 : "100", 1 : "300", 2:"200", 3 : "360", 4:"300", 5: "400"};
 
 var canvasEle = document.getElementById("polygonalGraph");
 var canvasCtx = canvasEle.getContext("2d");
@@ -18,7 +18,7 @@ var yBumperSize = 30;
 var graphWidth = canvasWidth - xBumperSize;
 var graphHeight = canvasHeight - yBumperSize;
 
-var dataLength = Object.keys(tempJson).length;
+var dataLength = Object.keys(polyJson).length;
 
 var drawPoly = function( context ,json, xMagnification ) {
 	context.font= "16px Helvetica";
@@ -77,10 +77,36 @@ var drawPoly = function( context ,json, xMagnification ) {
     	context.lineTo(i+xBumperSize, graphHeight);
     }
     context.stroke();
-}
+};
 
-drawPoly(canvasCtx, tempJson, graphWidth/dataLength);
+var drawBar = function(context, json, xMagnification) {
+	context.font= "16px Helvetica";
+	context.textAlign="center";
 
+	//모눈종이 그리기
+  	//수평방향 
+  	context.lineWidth = 1;
+  	context.strokeStyle = "#D7E4FA";
+  	context.beginPath();
+    for (var i = 0; i <= graphHeight ; i += 100 ) {
+    	context.moveTo(0+xBumperSize, i);
+    	context.lineTo(graphWidth+xBumperSize, i);
+    }
+    context.stroke();
+
+	//수직방향 
+    context.beginPath();
+    for (var i = 0 ; i < graphWidth ; i += graphWidth/dataLength ) {
+    	context.moveTo(i+xBumperSize, 0);
+    	context.lineTo(i+xBumperSize, graphHeight);
+    }
+    context.stroke();
+
+
+};
+
+drawPoly(canvasCtx, polyJson, graphWidth/dataLength);
+//drawBar(canvasCtx, polyJson, graphWidth/dataLength);
 
 
 
