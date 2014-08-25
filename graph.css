@@ -9,7 +9,7 @@ body {
 header {
 	height: 45px;
 	padding: 10px 0px;
-	border: 1px solid;
+	/*border: 1px solid;*/
 	background-color: #0CD1EB; 
 	display: block;
 
@@ -42,7 +42,7 @@ header .logo {
 	margin-left: auto;
 	padding-left: 15px;
 	padding-right: 15px;
-	border: 3px solid; 
+	/*border: 3px solid; */
 }
 
 .page-content > .container {
@@ -54,7 +54,7 @@ header .logo {
 .page-content {
 	margin: 30px 0px;
 	display: block;
-	border : 5px solid;
+	/*border : 5px solid;*/
 }
 
 .sideMenu {
