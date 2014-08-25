@@ -7,10 +7,10 @@ body {
 }
 
 header {
-	height: auto;
+	height: 45px;
 	padding: 10px 0px;
 	border: 1px solid;
-	background-color: #93FAF8; 
+	background-color: #0CD1EB; 
 	display: block;
 
 }
@@ -21,6 +21,7 @@ header .logo {
 	font-size: 40px;
 	position: relative;
 	font-family: 'Shadows Into Light', cursive;
+
 }
 
 /*.logo > h1 {
@@ -28,7 +29,7 @@ header .logo {
 }
 */
 
-.logo > a {
+.logo a {
 	text-decoration: none;
 	color: #fff;
 }
@@ -106,11 +107,31 @@ header .logo {
 	color: #555;
 }
 
+.mainContent {
+	position: relative;
+	display: inline-block;
+}
+
+.mainContent .contentExp {
+	padding: 10px 0 0 10px;
+	margin: 10px 0 0 10px;
+	height: 50px;
+	border-bottom: 1px solid #eee;
+}
+
+.contentExp > h2 {
+	/*display: inline-block;
+	vertical-align: center;*/
+	font-size: 3em;
+	color: #555;
+}
+
 .graph-full {
 	position: relative;
 	display: inline-block;
 	border-radius: 10px;
 	padding: 20px;
+	margin-top: 25px;
 	background: #fff;
 	max-width : 900px;
 	min-width: 440px;
