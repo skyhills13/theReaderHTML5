@@ -2,12 +2,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>graph-prac</title>
-	<link rel="stylesheet" href="stylesheet/reset.css">
-	<link rel="stylesheet" href="stylesheet/graph.css">
+	<title>record-page</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="graph.css">
 	<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-	
-</head>
+	</head>
 <body>
 	<header>
 		<div class = "container">
@@ -31,12 +30,13 @@
 				<div class="contentExp">
 					<h2>record</h2>
 				</div>
-				<div class = "graph-full selected"> 
-					<div class = "graph-header">
-						<h3>Line Chart<h3>
+				<div id = "recording"> 
+					<div class = "recording-header">
+						<h3>record your reading!<h3>
 					</div>
-					<div class = "graph-body">
-						<canvas id="polygonalGraph" width="860" height="460" style="border: 1px solid gray"></canvas>
+					<div class = "recording-body">
+						<input type = "button" value = "start" />
+						<input type = "button" value ="stop" />
 					</div>
 				</div>
 			</div>
@@ -44,6 +44,6 @@
 	</div>
 	<footer>
 	</footer>
-	<script type = "text/javascript" src="graph.js"></script>
+	<script type = "text/javascript" src="record.js"></script>
 </body>
 </html>
