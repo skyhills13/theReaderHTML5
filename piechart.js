@@ -15,47 +15,25 @@ function getTotal(){
 	return myTotal;
 }
 
-// function plotData() {
-// 	var lastEndAngle = 0;
-// 	var myTotal = getTotal();
+function plotData() {
+	var lastEndAngle = 0;
+	var myTotal = getTotal();
 
-// 	var canvas = document.getElementById("canvas");
-// 	var ctx = canvas.getContext("2d");
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
 
-// 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-// 	for (var i = 0; i < myData.length; i++) {
-// 		ctx.fillStyle = myColor[i];
-// 		ctx.beginPath();
-// 		ctx.moveTo( 200, 150 );
-// 		ctx.arc( 200, 150, 150, lastEndAngle, lastEndAngle + ( MathUtils.CIRCLE_DEGREE * ( myData[i]/myTotal ) ), false);
-// 		ctx.lineTo(200,150);
-// 		ctx.fill();
-// 		lastEndAngle += MathUtils.CIRCLE_DEGREE*(myData[i]/myTotal);
-// 	}
-// }
-
-
-// function plotData() {
-// 	var lastEndAngle = 0;
-// 	var myTotal = getTotal();
-
-// 	var canvas = document.getElementById("canvas");
-// 	var ctx = canvas.getContext("2d");
-	
-// 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-// 	for (var i = 0; i < myData.length; i++) {
-// 		ctx.fillStyle = myColor[i];
-// 		ctx.beginPath();
-// 		ctx.moveTo( 200, 150 );
-// 		ctx.arc( 200, 150, 150, lastEndAngle, lastEndAngle + ( MathUtils.CIRCLE_DEGREE * ( myData[i]/myTotal ) ), false);
-// 		ctx.lineTo(200,150);
-// 		ctx.fill();
-// 		lastEndAngle += MathUtils.CIRCLE_DEGREE*(myData[i]/myTotal);
-// 	}
-// }
-
+	for (var i = 0; i < myData.length; i++) {
+		ctx.fillStyle = myColor[i];
+		ctx.beginPath();
+		ctx.moveTo( 200, 150 );
+		ctx.arc( 200, 150, 150, lastEndAngle, lastEndAngle + ( MathUtils.CIRCLE_DEGREE * ( myData[i]/myTotal ) ), false);
+		ctx.lineTo(200,150);
+		ctx.fill();
+		lastEndAngle += MathUtils.CIRCLE_DEGREE*(myData[i]/myTotal);
+	}
+}
 
 
 //필요할 줄 알고 만들었는데 거의 무쓸모 약간 쓸모 있어서 다행 
@@ -78,61 +56,33 @@ var MathUtils = {
 	}
 } 
 
-//var currentPercentage = 0;
-var lastEndAngle = 0;
-var myTotal = getTotal();
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
+// // 하단의 애니메이션이 제대로 작동하지 않는 이유는, 처음부터 다시 그리는 것이 아니라, 중간부터 다시 그리기 때문 
+// var lastEndAngle = 0;
+// var myTotal = getTotal();
+// var canvas = document.getElementById("canvas");
+// var ctx = canvas.getContext("2d");
 
-var animate = function(dataIndex) {
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	ctx.fillStyle = myColor[dataIndex];
-	ctx.beginPath();
-	ctx.moveTo(200, 150);
-	ctx.arc(200, 150, 150, lastEndAngle, lastEndAngle + ( MathUtils.CIRCLE_DEGREE * ( myData[dataIndex]/myTotal ) ), false); 
-	ctx.lineTo(200, 150);
-	ctx.fill();
-	lastEndAngle += MathUtils.CIRCLE_DEGREE*(myData[dataIndex]/myTotal);
-	dataIndex++;
-	if ( dataIndex < myData.length) {
-		console.log(dataIndex);
-		requestAnimationFrame(function(){
-			animate(dataIndex);
-		});
-	}	
-}
-
-animate(0);
-
-//plotData();
-
-// var start = null;
-
-// var d = document.getElementById("SomeElementYouWantToAnimate");
-
-// function step(timestamp) {
-// 	var progress;
-// 	if (start === null) start = timestamp;
-// 	progress = timestamp - start;
-// 	d.style.left = Math.min(progress/10, 200) + "px";
-// 	if (progress < 2000) {
-// 		requestAnimationFrame(step);
-// 	}
+// var animate = function(dataIndex) {
+// 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+// 	ctx.fillStyle = myColor[dataIndex];
+// 	ctx.beginPath();
+// 	ctx.moveTo(200, 150);
+// 	ctx.arc(200, 150, 150, lastEndAngle, lastEndAngle + ( MathUtils.CIRCLE_DEGREE * ( myData[dataIndex]/myTotal ) ), false); 
+// 	ctx.lineTo(200, 150);
+// 	ctx.fill();
+// 	lastEndAngle += MathUtils.CIRCLE_DEGREE*(myData[dataIndex]/myTotal);
+// 	dataIndex++;
+// 	if ( dataIndex < myData.length) {
+// 		console.log(dataIndex);
+// 		requestAnimationFrame(function(){
+// 			animate(dataIndex);
+// 		});
+// 	}	
 // }
 
-// requestAnimationFrame(step);
+// animate(0);
 
-
-// var start = null;
-
-// function plotData(current) {
-// 	var progress;
-// 	if ( start === null) {
-// 			start = current;
-// 	}
-// 	progress = current - start;
-// }
-
+plotData();
 
 
 
