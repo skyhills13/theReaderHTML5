@@ -17,7 +17,7 @@ function getTotal(){
 
 function plotData() {
 	var lastEndAngle = 0;
-	var myTotal = getTotal();
+	var myTotal  = getTotal();
 
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
@@ -52,40 +52,46 @@ var MathUtils = {
 	},
 
 	radiansToDegrees : function(radian) {
-		return radian * ONE_RADIAN_OF_DEGREE; 
+		return radian * MathUtils.ONE_RADIAN_OF_DEGREE; 
 	}
 } 
 
-// // 하단의 애니메이션이 제대로 작동하지 않는 이유는, 처음부터 다시 그리는 것이 아니라, 중간부터 다시 그리기 때문 
-// var lastEndAngle = 0;
-// var myTotal = getTotal();
-// var canvas = document.getElementById("canvas");
-// var ctx = canvas.getContext("2d");
-
-// var animate = function(dataIndex) {
-// 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-// 	ctx.fillStyle = myColor[dataIndex];
-// 	ctx.beginPath();
-// 	ctx.moveTo(200, 150);
-// 	ctx.arc(200, 150, 150, lastEndAngle, lastEndAngle + ( MathUtils.CIRCLE_DEGREE * ( myData[dataIndex]/myTotal ) ), false); 
-// 	ctx.lineTo(200, 150);
-// 	ctx.fill();
-// 	lastEndAngle += MathUtils.CIRCLE_DEGREE*(myData[dataIndex]/myTotal);
-// 	dataIndex++;
-// 	if ( dataIndex < myData.length) {
-// 		console.log(dataIndex);
-// 		requestAnimationFrame(function(){
-// 			animate(dataIndex);
-// 		});
-// 	}	
-// }
-
-// animate(0);
-
-plotData();
+// 하단의 애니메이션이 제대로 작동하지 않는 이유는, 처음부터 다시 그리는 것이 아니라, 중간부터 다시 그리기 때문 
+var lastEndAngle = 0;
+var myTotal = getTotal();
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
 
 
+var animate = function(dataIndex) {
+	var tinyDelta = MathUtils.CIRCLE_DEGREE * ( myData[dataIndex]/myTotal ) * (1 / 10);
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.fillStyle = myColor[dataIndex];
+	ctx.beginPath();
+	ctx.moveTo(200, 150);
+	ctx.arc(200, 150, 150, 0, lastEndAngle + tinyDelta, false); 
+	ctx.lineTo(200, 150);
+	ctx.fill();
+	lastEndAngle += tinyDelta;
+	if( lastEndAngle < ( MathUtils.CIRCLE_DEGREE * ( myData[dataIndex]/myTotal ) )) {
+		requestAnimationFrame(function(){
+			animate(dataIndex);
+		});
+	} else {
+		requestAnimationFrame(function(){
+			animate(dataIndex++);
+		});
+	}
+	// if ( dataIndex < myData.length) {
+	// 	requestAnimationFrame(function(){
+	// 		animate(dataIndex);
+	// 	});
+	// }	
+}
 
+animate(0);
+
+//plotData();
 
 
 
