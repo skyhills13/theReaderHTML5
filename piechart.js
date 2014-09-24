@@ -56,7 +56,7 @@ var MathUtils = {
 	}
 } 
 
-/*
+
 //애니메이션은 동작, 하지만, 한 색깔, 하나의 데이터에 대해서만 작동 
 var lastEndAngle = 0;
 var myTotal = getTotal();
@@ -91,50 +91,7 @@ var animate = function(dataIndex) {
 	// 	});
 	// }	
 }
-*/
-
-
-
-//애니메이션은 동작, 하지만, 한 색깔, 하나의 데이터에 대해서만 작동 
-var lastEndAngle = 0;
-var myTotal = getTotal();
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-var startAngle = 0;
-var endAngle = 0;
-
-var animate = function(dataIndex, startAngle) {
-	var tinyDelta = MathUtils.CIRCLE_DEGREE * ( myData[dataIndex]/myTotal ) * (1 / 10);
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	ctx.restore();
-	ctx.fillStyle = myColor[dataIndex];
-	ctx.beginPath();
-	ctx.moveTo(200, 150);
-	ctx.arc(200, 150, 150, startAngle, lastEndAngle + tinyDelta, false); 
-	ctx.lineTo(200, 150);
-	ctx.fill();
-	lastEndAngle += tinyDelta;
-	if( lastEndAngle < ( MathUtils.CIRCLE_DEGREE * ( myData[dataIndex]/myTotal ) )) {
-		console.log(lastEndAngle);
-		requestAnimationFrame(function(){
-			animate(0);
-		});
-	} else {
-		//이 코드로 인해 원이 전체가 그려진다.
-		startAngle = lastEndAngle; 
-		ctx.save();
-		requestAnimationFrame(function(){
-			animate(1, startAngle);
-		});
-	}
-	// if ( dataIndex < myData.length) {
-	// 	requestAnimationFrame(function(){
-	// 		animate(dataIndex);
-	// 	});
-	// }	
-}
-
-animate(0, startAngle);
+animate(0);
 
 //plotData();
 
